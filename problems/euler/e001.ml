@@ -31,8 +31,14 @@ let sum_both_multiples_v1 (n : int) : int =
 
 TODO 
 
-( Inclusion- Exclusion )
-
-TODO
 *)
+
+(* Inclusion - Exclusion *)
+
+let sum_both_multiples_v2 (n : int) : int =
+  let sum_multiple_k (k : int) : int =
+    let new_limit = ((n-1) - (n-1) mod k) / k in
+      k * (new_limit * (new_limit + 1) / 2)
+  in
+    sum_multiple_k 3 + (sum_multiple_k 5) - (sum_multiple_k 15)
 
