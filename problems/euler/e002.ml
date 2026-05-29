@@ -1,21 +1,14 @@
+(** [sum_even_fib limit] computes the sum of even-valued fibonacci terms that does not exceed the limit
+    for instance
+     By starting with 1 and 2 , the first 10 terms will be:
+                    1, 2, 3, 5, 8, 13, 21, 34, 55, 89
+    sum_even_fib 13 computes 10. *)
 
-
-(* slop block of code I think *)
-
-let sum_even_valued_fibonacci_terms (n : int) : int = 
-  let rec fib (k : int) : int =
-    match k with
-    | 1 -> 1
-    | 2 -> 2
-    | k -> fib (k-1) + fib (k-2)
+let sum_even_fib (limit : int) : int =
+  let rec aux a b acc =
+    if a > limit then acc
+    else
+      let acc' = if a mod 2 = 0 then acc + a else acc in
+      aux b (a + b) acc'
   in
-  let sum = ref 0 in
-  for idx = 1 to n do
-    let fib_term = fib idx in
-    if fib_term <= 4000000 && fib_term mod 2 = 0 then
-      sum := !sum + fib_term
-  done;
-  !sum
-
-
-
+  aux 1 2 0
