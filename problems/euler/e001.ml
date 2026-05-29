@@ -27,15 +27,20 @@ let sum_both_multiples_v1 (n : int) : int =
   in
   aux 1
 
-(* ( Tail-recursive ) 
+(* Tail-recursive *) 
 
-TODO 
-
-*)
+let sum_both_multiples_v2 (n : int) : int = 
+  let rec aux (k : int) (acc : int) : int =
+    if k >= n then acc
+    else
+      let acc' = if (k mod 3 = 0 || k mod 5 = 0) then acc + k else acc in
+      aux (k+1) acc'
+  in
+  aux 1 0
 
 (* Inclusion - Exclusion *)
 
-let sum_both_multiples_v2 (n : int) : int =
+let sum_both_multiples_v3 (n : int) : int =
   let sum_multiple_k (k : int) : int =
     let new_limit = ((n-1) - (n-1) mod k) / k in
       k * (new_limit * (new_limit + 1) / 2)
