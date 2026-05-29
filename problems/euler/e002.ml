@@ -1,4 +1,4 @@
-(** [sum_even_fib limit] computes the sum of even-valued fibonacci terms that does not exceed the limit
+(** [sum_even_fib limit] computes the sum of even-valued fibonacci terms that do not exceed the limit
     for instance
      By starting with 1 and 2 , the first 10 terms will be:
                     1, 2, 3, 5, 8, 13, 21, 34, 55, 89
